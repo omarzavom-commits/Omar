@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIROS - تطبيق متكامل للترفيه والإنتاجية</title>
+    <meta name="description" content="اكتشف عالمًا متكاملًا بين يديك مع تطبيق KIROS. محادثات، قنوات، راديو، ذكاء اصطناعي، ألعاب وأكثر في تطبيق واحد.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #000000;
+            color: #fafafa;
+            min-height: 100vh;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Golden Gradient Effects */
+        .gradient-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #F5C842 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #F5C842 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .golden-glow {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Header Section */
+        .header-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 160px;
+            height: 160px;
+            border-radius: 1.5rem;
+            border: 2px solid #FFD700;
+            background-color: white;
+            margin: 0 auto 2rem auto;
+            display: block;
+        }
+
+        .app-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .app-subtitle {
+            font-size: 1.5rem;
+            color: #b3b3b3;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-info {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .app-version {
+            background-color: #262626;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        .app-size {
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 3rem;
+            color: #000000;
+            font-weight: 700;
+            font-size: 1.5rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .download-icon {
+            width: 2rem;
+            height: 2rem;
+            margin-left: 0.75rem;
+        }
+
+        /* Screenshots Section */
+        .screenshots-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+        }
+
+        .screenshots-gallery {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .screenshots-gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .screenshot-item {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+
+        .screenshot-item img {
+            width: 192px;
+            height: auto;
+            border-radius: 0.75rem;
+            border: 1px solid #333333;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Description Section */
+        .description-section {
+            padding: 3rem 0;
+        }
+
+        .description-card {
+            background-color: #0d0d0d;
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid #333333;
+        }
+
+        .description-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .feature-icon {
+            color: #FFD700;
+            font-size: 1.25rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #262626;
+            border-radius: 0.75rem;
+            border: 2px solid #FFD700;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            color: #b3b3b3;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-download-btn {
+            font-size: 1.25rem;
+            padding: 1.25rem 2.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid #333333;
+            color: #b3b3b3;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .app-title {
+                font-size: 3rem;
+            }
+            
+            .app-subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .download-btn {
+                font-size: 1.25rem;
+                padding: 1.25rem 2rem;
+            }
+            
+            .app-icon {
+                width: 128px;
+                height: 128px;
+            }
+            
+            .description-title {
+                font-size: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- App Header Section - Centered -->
+    <div class="container header-section">
+        <img 
+            src="https://www.appcreator24.com/srv/imgs/gen/3715894_ico.png?v=13" 
+            alt="KIROS App Icon" 
+            class="app-icon golden-glow"
+        />
+        
+        <h1 class="app-title text-gradient">KIROS</h1>
+        <p class="app-subtitle">تطبيق متكامل للترفيه والإنتاجية</p>
+        
+        <div class="app-info">
+            <span class="app-version">الإصدار 0.0.1</span>
+            <span class="app-size">28 ميغابايت فقط</span>
+        </div>
+        
+        <a href="https://apk.e-droid.net/apk/app3715894-y6krpm.apk?v=13" class="download-btn gradient-gold golden-glow">
+            <svg class="download-icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            تحميل التطبيق
+        </a>
+    </div>
+
+    <!-- Screenshot Gallery -->
+    <div class="container screenshots-section">
+        <h2 class="section-title">لقطات من التطبيق</h2>
+        <div class="screenshots-gallery">
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/20ry5Dr9/Screenshot-20250828-205635.jpg" alt="KIROS App Screenshot 1">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/cXcx1t7g/Screenshot-20250828-205056.jpg" alt="KIROS App Screenshot 2">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/k2bykv6j/Screenshot-20250828-205247.jpg" alt="KIROS App Screenshot 3">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/pjckKVsr/Screenshot-20250828-205039.jpg" alt="KIROS App Screenshot 4">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/rKK5z3S0/Screenshot-20250828-205304.jpg" alt="KIROS App Screenshot 5">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/N6GRbnyY/Screenshot-20250828-205213.jpg" alt="KIROS App Screenshot 6">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/G4CYRyZ8/Screenshot-20250828-205016.jpg" alt="KIROS App Screenshot 7">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/LjY3FGB/Screenshot-20250828-205100.jpg" alt="KIROS App Screenshot 8">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/tTvrGCBj/Screenshot-20250828-205438.jpg" alt="KIROS App Screenshot 9">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://i.ibb.co/jvq9GL6V/Screenshot-20250828-205402.jpg" alt="KIROS App Screenshot 10">
+            </div>
+        </div>
+    </div>
+
+    <!-- App Description -->
+    <div class="container description-section">
+        <div class="description-card">
+            <h2 class="description-title">اكتشف عالمًا متكاملًا بين يديك مع تطبيق KIROS ✨</h2>
+            
+            <div class="features-grid">
+                <div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>محادثات خاصة وعامة بكل حرية وأمان</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>مشاهدة جميع قنوات العالم 🌍 في مكان واحد</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>الاستماع إلى آلاف محطات الراديو من مختلف الدول</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>إنشاء فيديوهات مذهلة وحقيقية بالذكاء الاصطناعي</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>برمجة مواقع وتطبيقات احترافية بسهولة مع AI</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>متصفح KIROS لتصفح سريع وآمن</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>موسوعة ضخمة تحتوي على آلاف المقالات المتنوعة</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>أكثر من 15,000 لعبة رائعة بين يديك 🎮</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>دردشة ذكية مع الذكاء الاصطناعي</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✔️</div>
+                        <span>ترجمة النصوص الطويلة بجودة عالية ودقة متناهية</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h3 class="cta-title">🚀 كل هذا وأكثر في تطبيق واحد لا يتجاوز حجمه 28 ميغابايت فقط!</h3>
+                <p class="cta-subtitle">استمتع بتجربة شاملة ومتكاملة مع KIROS</p>
+                
+                <a href="https://apk.e-droid.net/apk/app3715894-y6krpm.apk?v=13" class="download-btn gradient-gold golden-glow cta-download-btn">
+                    <svg class="download-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7,10 12,15 17,10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    تحميل KIROS الآن
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container footer">
+        <p>KIROS - الإصدار 0.0.1</p>
+        <p>تطبيق متكامل للترفيه والإنتاجية والذكاء الاصطناعي</p>
+    </footer>
+</body>
+</html>
